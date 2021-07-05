@@ -1,0 +1,6 @@
+# Don't bother with these
+**/.vscode/
+*.lock
+code/saitekswitch/target/
+
+

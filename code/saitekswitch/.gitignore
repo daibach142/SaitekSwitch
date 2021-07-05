@@ -1,0 +1,7 @@
+# Don't bother with these
+.vscode/
+# Don't bother with these
+.vscode/
+*.lock
+target/
+

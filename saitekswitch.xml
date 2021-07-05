@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<PropertyList>
+	<generic>
+
+		<input>
+			<line_separator>\n</line_separator>
+			<var_separator>,</var_separator>
+
+			<chunk>
+				<name>Switch</name>
+				<type>string</type>
+				<node>/saitek-switch-panel/switch</node>
+			</chunk>
+
+			<chunk>
+				<name>Action</name>
+				<type>int</type>
+				<node>/saitek-switch-panel/action</node>
+			</chunk>
+			
+		</input>
+	
+	</generic>	
+</PropertyList>

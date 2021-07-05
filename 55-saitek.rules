@@ -1,0 +1,17 @@
+# Saitek Switch Panel
+# Panel identifies itself with a mysterious Manufacturer
+
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="06a3", ATTRS{idProduct}=="0d67", \
+    ATTRS{manufacturer}=="Intretech", \
+    ATTRS{product}=="Saitek Pro Flight Switch Panel", \
+    MODE="666"
+    
+# Saitek Radio Panel
+# Maybe this will change Manufacturer in later versions?
+
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="06a3", ATTRS{idProduct}=="0d05", \
+    ATTRS{manufacturer}=="Saitek", \
+    ATTRS{product}=="Pro Flight Radio Panel", \
+    MODE="666"
+
+
