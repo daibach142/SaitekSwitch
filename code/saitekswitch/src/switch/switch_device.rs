@@ -111,7 +111,7 @@ impl Device {
 
     /// Blocking read of the device into the 'input_current' field in the Device
     /// struct. If there is no data, does not disturb the 'input_current' field.
-    /// Three data bytes are provided by the radio and are packed into a u32 such that
+    /// Three data bytes are provided by the switch panel and are packed into a u32 such that
     /// the bit positions and other masks in 'radio_constants.rs' coincide.
     #[cfg(not(piped))]
     pub fn read(&mut self) {
@@ -131,7 +131,7 @@ impl Device {
 
     /// Blocking read of the device into the 'input_current' field in the Device
     /// struct.
-    /// Three data bytes are provided by the radio and are packed into a u32 such that
+    /// Three data bytes are provided by the switch panel and are packed into a u32 such that
     /// the bit positions and other masks in 'radio_constants.rs' coincide.
     #[cfg(piped)]
     pub fn read(&mut self) {
@@ -153,7 +153,6 @@ impl Device {
 
     //-----------------------------------------------------------------------------------------
 
-
     /// Returns the current input value
     pub fn get_current_input(&self) -> u32 {
         self.input_current
@@ -174,7 +173,6 @@ impl Device {
     pub fn has_input_changed(&self) -> bool {
         self.input_current != self.input_old
     }
-
 }
 
 //----------------------------------------------------------------------------------------
@@ -211,7 +209,7 @@ fn initialise_device(device: &HidDevice) -> u32 {
 /// value read from the device, which gives the current switch settings.
 #[cfg(piped)]
 fn initialise_device() -> u32 {
-   let reply: u32;
+    let reply: u32;
     let mut buf: [u8; RIGHT_SIZE] = [0; RIGHT_SIZE];
     println!("Operate a key on the Saitek Switch");
     let rsize = io::stdin().read(&mut buf).unwrap();

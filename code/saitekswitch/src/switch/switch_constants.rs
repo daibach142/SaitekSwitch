@@ -1,3 +1,37 @@
+//! Driver to connect a Saitek Switch to Flightgear flight simulator
+//! Copyright (C) 2021 Dave Attwood
+//!
+//! This program is free software: you can redistribute it and/or modify
+//! it under the terms of the GNU General Public License as published by
+//! the Free Software Foundation, either version 3 of the License, or
+//! (at your option) any later version.
+//! This program is distributed in the hope that it will be useful,
+//! but WITHOUT ANY WARRANTY; without even the implied warranty of
+//! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//! GNU General Public License for more details.
+//! You should have received a copy of the GNU General Public License
+//! along with this program. If not, see <https://www.gnu.org/licenses/>.
+//!
+//! The Saitek Switch Device consists of;
+//!   13 labelled switches
+//!      BATTERY, ALT, AVIONICS,FUELPUMP, DEICE, PITOTHEAT, COWLCLOSE, PANELLIGHT,
+//!      BEACON, NAVLIGHTS, STROBE, TAXI, LANDING
+//!   rotary Magneto switch
+//!
+//!      MAGOFF, MAGR, MAGL, MAGBOTH, MAGSTART
+//!   a gear lever, up or down
+//!   3 leds (R/O/G) for status indication
+//!
+//!  Any switch will trigger one or two outputs -
+//!     for switches, one output (SET or RESET)
+//!     for magneto, one output except for MAGBOTH, which outputs MAGSTART RESET as well
+//!     
+//!  The Nasal code in FGFS expects the bit values as the action i.e. SET 1, RESET 0
+//!  Writing the device requires 3 bytes of data
+//!
+//!  For Windows compatibility, an extra bytes (value unimportant) on the end if required,
+//!   without this affecting the Linux code.
+//!
 // returned 3 bytes from Saitek Switch Panel
 // bit positions of flags, per packed integer
 // packed as:

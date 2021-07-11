@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Please note that leading/trailing white-space is ignored 
      This is just for clarity									-->
-<plane name="Cessna 172P">
+<plane> 						Cessna 172P
 
 	<switch name="BATTERY">		controls/switches/master-bat				</switch>
 	<switch name="ALT"> 		controls/switches/master-alt				</switch>

@@ -61,7 +61,7 @@ pub struct Simulator {
 
 impl Simulator {
     /// Create and initialise the simulator mapping structure
-    /// by loading the configuration file and forming suitable 
+    /// by loading the configuration file and forming suitable
     /// data structures for easy access
     pub fn new(config_file: &str) -> Simulator {
         let mut sim_map = Simulator {
@@ -75,13 +75,13 @@ impl Simulator {
             gear_primer: String::new(),
         };
 
-        config_loader(config_file,switch_device::make_name_map(), &mut sim_map);
+        config_loader(config_file, switch_device::make_name_map(), &mut sim_map);
 
         sim_map
     }
-       /// Set up initial values for the switches in the simulator
-       /// using the current switch values (set up by the initial read)
-       pub fn initialise_switches(&mut self, current_input : u32) {
+    /// Set up initial values for the switches in the simulator
+    /// using the current switch values (set up by the initial read)
+    pub fn initialise_switches(&mut self, current_input: u32) {
         // Set initial state for all the switches
         // send the initial state for all the switches to the simulator
         // need to both store and iterate this list -  hashmap with
@@ -92,11 +92,7 @@ impl Simulator {
         //     &self.switch_mapper.len()
         // );
         for (key, value) in &self.switch_mapper {
-            let status = if (current_input & key) == 0 {
-                0
-            } else {
-                1
-            };
+            let status = if (current_input & key) == 0 { 0 } else { 1 };
             &self.switch_status.insert(*key, status);
             // println!("Key {:06x} Value {} destination {}", key, status, value);
             write_simulator(value, status);
@@ -118,8 +114,7 @@ impl Simulator {
 
     /// Send suitable command for the (change in) input data
     /// Current and previous values are incoming paramters
-    pub fn process_input(&mut self, current_input : u32, previous_input : u32) {
-    
+    pub fn process_input(&mut self, current_input: u32, previous_input: u32) {
         let key = (current_input ^ previous_input) & SWITCHMASK;
         // println!("process_input key={:06x}", key);
         if key != 0 {
@@ -141,10 +136,7 @@ impl Simulator {
             }
             // println!("process_input: key {:06x} mag_value {:06x}", key, self.mag_value);
             self.mag_value = key;
-            write_simulator(
-                &self.magneto,
-                *self.mag_mapper.get(&key).unwrap(),
-            );
+            write_simulator(&self.magneto, *self.mag_mapper.get(&key).unwrap());
             if key == MAGSTART {
                 write_simulator(&self.starter, 1); // extra action on the starter
             }
@@ -174,9 +166,7 @@ impl Simulator {
         //         write_simulator(&self.gear_primer, 1);
         //     }
         // }
-
     }
-
 }
 
 /// Processes the configuration file to build the mapping tables in the simulator
@@ -254,8 +244,6 @@ fn config_loader(filename: &str, devmap: HashMap<String, u32>, config_data: &mut
     config_data.mag_mapper.insert(MAGSTART, 4);
 }
 
-
-
 enum StartType {
     Plane,
     Switch,
@@ -265,8 +253,7 @@ enum StartType {
     GearPrimer,
 }
 
-
- /// Send a command to the FGFS consisting of the simulator name for the switch to operate
+/// Send a command to the FGFS consisting of the simulator name for the switch to operate
 ///  and the action (which is one of 0, 1, 2, 3, 4)
 fn write_simulator(control: &str, action: u8) {
     let data = format!("{},{}\n", control, action);

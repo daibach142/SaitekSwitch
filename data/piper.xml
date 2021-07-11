@@ -2,7 +2,7 @@
 <!-- Please note that leading/trailing white-space is ignored 
      This is just for clarity									-->
 
-<plane name="Piper PA28-116">
+<plane>                         Piper PA28-116
 
 	<switch name="BATTERY">		controls/electrical/switches/battery			</switch>
 	<switch name="ALT">    		controls/electrical/switches/alternator			</switch>
