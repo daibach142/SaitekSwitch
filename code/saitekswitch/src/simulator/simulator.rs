@@ -193,7 +193,10 @@ fn config_loader(filename: &str, devmap: HashMap<String, u32>, config_data: &mut
                             }
                         }
                         // println!("sname={:?}", sname);
-                        switch = *devmap.get(&sname).unwrap();
+                        match devmap.get(&sname) {
+                            Some(x) => switch = *x,
+                            None => panic!("Uknown SWITCH name {:?}", sname),
+                        }
                         mode = StartType::Switch;
                     }
                     "magnetos" => mode = StartType::Magnetos,
@@ -236,6 +239,12 @@ fn config_loader(filename: &str, devmap: HashMap<String, u32>, config_data: &mut
             }
             _ => {}
         }
+    }
+    if config_data.switch_mapper.len() < 13 {
+        panic!(
+            "Error: you neeed 13 SWITCH elements, only {} unique ones provided",
+            config_data.switch_mapper.len()
+        );
     }
     config_data.mag_mapper.insert(MAGOFF, 0);
     config_data.mag_mapper.insert(MAGR, 1);
