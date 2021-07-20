@@ -76,6 +76,7 @@ pub const MAGMASK: u32 = MAGOFF | MAGR | MAGL | MAGBOTH | MAGSTART;
 
 // Write data for Gear LEDS
 // LED may be yellow if RED and GREEN asserted
+#[cfg(not(piped))]
 pub const NOSERED: u8 = 0x08;
 // pub const NOSEGREEN: u8 = 0x01;
 // pub const NOSEOFF: u8 = !(NOSERED | NOSEGREEN);
@@ -86,5 +87,6 @@ pub const NOSERED: u8 = 0x08;
 // pub const RIGHTRED: u8 = 0x20;
 // pub const RIGHTGREEN: u8 = 0x04;
 // pub const RIGHTOFF: u8 = !(RIGHTRED | RIGHTGREEN);
+#[cfg(not(piped))]
 pub const ALLOFF: u8 = 0x00;
 // pub const LEDFIELD: u8 = 0x3f;

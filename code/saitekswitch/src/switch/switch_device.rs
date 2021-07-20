@@ -39,15 +39,18 @@ use crate::switch::switch_constants::*;
 use std::collections::HashMap;
 
 #[cfg(piped)]
-use std::io::{self, Read, Stdin};
+use std::io::{self, Read};
 
 #[cfg(not(piped))]
 use hidapi::{HidApi, HidDevice};
 
+#[cfg(not(piped))]
 use std::process;
 
 // Saitek is 6a3, switch is d67, radio is d08
+#[cfg(not(piped))]
 const VENDOR_ID: u16 = 0x06a3;
+#[cfg(not(piped))]
 const SWITCH_ID: u16 = 0x0d67;
 
 const RIGHT_SIZE: usize = 4; // 1 byte at end unused, required on Windows hidapi
@@ -183,7 +186,7 @@ impl Device {
 #[cfg(not(piped))]
 fn initialise_device(device: &HidDevice) -> u32 {
     let reply: u32;
-    let mut buf: [u8; RIGHT_SIZE] = [0; RIGHT_SIZE];
+    let mut buf = [0u8; RIGHT_SIZE];
     let mut obuf: [u8; 2] = [0, NOSERED];
     device.send_feature_report(&obuf).unwrap(); // nose light set red
     println!("Operate a key on the Saitek Switch");
@@ -210,7 +213,7 @@ fn initialise_device(device: &HidDevice) -> u32 {
 #[cfg(piped)]
 fn initialise_device() -> u32 {
     let reply: u32;
-    let mut buf: [u8; RIGHT_SIZE] = [0; RIGHT_SIZE];
+    let mut buf = [0u8; RIGHT_SIZE];
     println!("Operate a key on the Saitek Switch");
     let rsize = io::stdin().read(&mut buf).unwrap();
     if rsize > 2 {

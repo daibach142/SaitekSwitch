@@ -18,6 +18,14 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 //!
 //!   This program links a Saitek Switch Panel to FlightGear Flight  Simulator.
 //!   The code runs (without any changes) on Linux and Windows.
+//! 
+//!   To aid testing without a switch panel, a Switch Panel Emulator (not as a HID device!)
+//!   provides input in an identical manner to the real Switch Panel
+//!   This requires compiling with:
+//!       "cargo rustc -- --cfg piped" 
+//!    and there are occasional "#[cfg(piped)]" or "#[cfg(not(piped))]" for conditional compilation
+//!    in the source code.
+//! 
 mod simulator;
 mod switch;
 
