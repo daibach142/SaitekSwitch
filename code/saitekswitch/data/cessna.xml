@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <!-- Please note that leading/trailing white-space is ignored 
-     This is just for clarity									-->
-<plane> 						Cessna 172P
+     This is just for clarity                                   -->
+<plane>                         Cessna 172P
 
-	<switch name="BATTERY">		controls/switches/master-bat				</switch>
-	<switch name="ALT"> 		controls/switches/master-alt				</switch>
-	<switch name="AVIONICS">	controls/switches/master-avionics			</switch>
-	<switch name="FUELPUMP"> 	controls/hydraulic/system/electric-pump		</switch>
-	<switch name="DEICE">		controls/engines/current-engine/carb-heat	</switch>
-	<switch name="PITOTHEAT">	controls/anti-ice/pitot-heat				</switch>
-	<switch name="COWLCLOSE"> 	controls/engines/engine/cow-flaps-norm		</switch>
-	<switch name="PANELLIGHT">	controls/lighting/instruments-norm			</switch>
-	<switch name="BEACON">		controls/lighting/beacon					</switch>
-	<switch name="NAVLIGHTS">	controls/lighting/nav-lights				</switch>
-	<switch name="STROBE">		controls/lighting/strobe					</switch>
-	<switch name="TAXI">		controls/lighting/taxi-light				</switch>
-	<switch name="LANDING">		controls/lighting/landing-light				</switch>
+    <switch name="BATTERY">     controls/switches/master-bat                </switch>
+    <switch name="ALT">         controls/switches/master-alt                </switch>
+    <switch name="AVIONICS">    controls/switches/master-avionics           </switch>
+    <switch name="FUELPUMP">    controls/hydraulic/system/electric-pump     </switch>
+    <switch name="DEICE">       controls/engines/current-engine/carb-heat   </switch>
+    <switch name="PITOTHEAT">   controls/anti-ice/pitot-heat                </switch>
+    <switch name="COWLCLOSE">   controls/engines/engine/cow-flaps-norm      </switch>
+    <switch name="PANELLIGHT">  controls/lighting/instruments-norm          </switch>
+    <switch name="BEACON">      controls/lighting/beacon                    </switch>
+    <switch name="NAVLIGHTS">   controls/lighting/nav-lights                </switch>
+    <switch name="STROBE">      controls/lighting/strobe                    </switch>
+    <switch name="TAXI">        controls/lighting/taxi-light                </switch>
+    <switch name="LANDING">     controls/lighting/landing-light             </switch>
 
-	<magnetos>					controls/switches/magnetos					</magnetos>
-	<starter>					controls/switches/starter					</starter>
+    <magnetos>                  controls/switches/magnetos                  </magnetos>
+    <starter>                   controls/switches/starter                   </starter>
 
 </plane>
 
-		
+        
 

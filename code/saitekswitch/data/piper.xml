@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <!-- Please note that leading/trailing white-space is ignored 
-     This is just for clarity									-->
+     This is just for clarity                                   -->
 
 <plane>                         Piper PA28-116
 
-	<switch name="BATTERY">		controls/electrical/switches/battery			</switch>
-	<switch name="ALT">    		controls/electrical/switches/alternator			</switch>
-	<switch name="AVIONICS">	controls/electrical/switches/avionics-master 	</switch>
-    <switch name="FUELPUMP">    controls/fuel/switches/pump    					</switch>
-	<switch name="DEICE">		controls/anti-ice/engine/carb-heat-cmd			</switch>
-    <switch name="PITOTHEAT">	controls/switches/pitot-heat					</switch>
-	<switch name="COWLCLOSE">   controls/engines/engine/cowl-flaps-norm			</switch>
-	<switch name="PANELLIGHT">	controls/switches/panel-lights-factor			</switch>
-    <switch name="BEACON">		controls/switches/beacon						</switch>
-    <switch name="NAVLIGHTS">	controls/switches/nav-lights-factor				</switch>
-    <switch name="STROBE">		controls/switches/strobe-lights					</switch>
-     <switch name="TAXI">	    autopilot engage								</switch>
-    <switch name="LANDING">		controls/switches/landing-light					</switch>
-	
-	<magnetos>					controls/engines/engine/magnetos-switch			</magnetos>
-	<starter>					controls/engines/engine/starter					</starter>
+    <switch name="BATTERY">     controls/electrical/switches/battery            </switch>
+    <switch name="ALT">         controls/electrical/switches/alternator         </switch>
+    <switch name="AVIONICS">    controls/electrical/switches/avionics-master    </switch>
+    <switch name="FUELPUMP">    controls/fuel/switches/pump                     </switch>
+    <switch name="DEICE">       controls/anti-ice/engine/carb-heat-cmd          </switch>
+    <switch name="PITOTHEAT">   controls/switches/pitot-heat                    </switch>
+    <switch name="COWLCLOSE">   controls/engines/engine/cowl-flaps-norm         </switch>
+    <switch name="PANELLIGHT">  controls/switches/panel-lights-factor           </switch>
+    <switch name="BEACON">      controls/switches/beacon                        </switch>
+    <switch name="NAVLIGHTS">   controls/switches/nav-lights-factor             </switch>
+    <switch name="STROBE">      controls/switches/strobe-lights                 </switch>
+     <switch name="TAXI">       autopilot engage                                </switch>
+    <switch name="LANDING">     controls/switches/landing-light                 </switch>
+    
+    <magnetos>                  controls/engines/engine/magnetos-switch         </magnetos>
+    <starter>                   controls/engines/engine/starter                 </starter>
 
 </plane>
 
-		
+        
 
