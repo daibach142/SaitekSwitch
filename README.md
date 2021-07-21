@@ -5,7 +5,7 @@ The driver is provided for Linux and Windows, and is written in the Rust languag
    
 To install this driver, follow the instructions in `INSTALL`; to run, see `RUNNING`.
 
-This software loads configuration which maps the switch keys to the **FSFG** simulator properties. The currently available configuration files are located in `code/saitekswitch/data`
+This software loads configuration which maps the switch keys to the **FSFG** simulator properties. The currently available configuration files are located in `./data`
 and are for:
 
 * Cessna 172
