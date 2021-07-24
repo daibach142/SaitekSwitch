@@ -118,11 +118,19 @@ impl Simulator {
         let key = (current_input ^ previous_input) & SWITCHMASK;
         // println!("process_input key={:06x}", key);
         if key != 0 {
-            // only one bit changes per read
-            let command = self.switch_mapper.get(&key).unwrap();
-            let value = self.switch_status.entry(key).or_insert(0);
-            *value = if *value == 0 { 1u8 } else { 0u8 };
-            write_simulator(command, *value);
+            // only one bit changes per read - OR NOT, bug from Bruce Maggs
+            for lkey in self.switch_mapper.keys() {
+                if (lkey & key) != 0 {
+                    // single bit match
+                    let command = self.switch_mapper.get(lkey).unwrap();
+                    let value = self.switch_status.entry(*lkey).or_insert(0);
+                    *value = if *value == 0 { 1u8 } else { 0u8 };
+                    write_simulator(&command, *value);
+                    if key == *lkey {
+                        break; // quit if only one bit to match
+                    }
+                }
+            }
         }
 
         // let's do magnetos stuff

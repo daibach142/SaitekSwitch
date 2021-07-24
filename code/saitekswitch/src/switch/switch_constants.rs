@@ -61,11 +61,11 @@ pub const SWITCHMASK: u32 =
 		| PANELLIGHT
 		| BEACON | NAVLIGHTS
 		| STROBE | TAXI
-		| LANDING;
+		| LANDING | GEARMASK;
 
 pub const GEARUP: u32 = 0x000004;
 pub const GEARDOWN: u32 = 0x000008;
-pub const _GEARMASK: u32 = GEARUP | GEARDOWN;
+pub const GEARMASK: u32 = GEARUP | GEARDOWN;
 
 pub const MAGOFF: u32 = 0x002000;
 pub const MAGR: u32 = 0x004000;
