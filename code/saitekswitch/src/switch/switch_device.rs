@@ -56,18 +56,17 @@ const SWITCH_ID: u16 = 0x0d67;
 const RIGHT_SIZE: usize = 4; // 1 byte at end unused, required on Windows hidapi
 
 //-------------------------------------------------------------------------------
+#[cfg(not(piped))]
+pub struct Device {
+    device: HidDevice,  // for device reads and writes
+    input_current: u32, // data from device
+    input_old: u32,     // previous data
+}
 
 // if data is piped to this driver, input is via STDIN, so there is no need to
 // hold any device information
 #[cfg(piped)]
 pub struct Device {
-    input_current: u32, // data from device
-    input_old: u32,     // previous data
-}
-
-#[cfg(not(piped))]
-pub struct Device {
-    device: HidDevice,  // for device reads and writes
     input_current: u32, // data from device
     input_old: u32,     // previous data
 }
@@ -115,7 +114,7 @@ impl Device {
     /// Blocking read of the device into the 'input_current' field in the Device
     /// struct. If there is no data, does not disturb the 'input_current' field.
     /// Three data bytes are provided by the switch panel and are packed into a u32 such that
-    /// the bit positions and other masks in 'radio_constants.rs' coincide.
+    /// the bit positions and other masks in 'switch_constants.rs' coincide.
     #[cfg(not(piped))]
     pub fn read(&mut self) {
         // Non-blocking read the radio panel switches and selectors
@@ -135,7 +134,7 @@ impl Device {
     /// Blocking read of the device into the 'input_current' field in the Device
     /// struct.
     /// Three data bytes are provided by the switch panel and are packed into a u32 such that
-    /// the bit positions and other masks in 'radio_constants.rs' coincide.
+    /// the bit positions and other masks in 'switch_constants.rs' coincide.
     #[cfg(piped)]
     pub fn read(&mut self) {
         // println!("Read - enter");
