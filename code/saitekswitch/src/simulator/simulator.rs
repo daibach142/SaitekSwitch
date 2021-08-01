@@ -43,9 +43,10 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::BufReader;
 use std::net::UdpSocket;
+use std::process;
 use std::{thread, time};
 
-const SIMULATOR_INPUT_ADDRESS: &str = "127.0.0.1:60001";
+const SIMULATOR_INPUT_ADDRESS: &str = "127.0.0.1:60003"; // don't clash with Radio Panel
 const SIMULATOR_OUTPUT_ADDRESS: &str = "127.0.0.1:60000";
 
 pub struct Simulator {
@@ -115,6 +116,7 @@ impl Simulator {
     /// Send suitable command for the (change in) input data
     /// Current and previous values are incoming paramters
     pub fn process_input(&mut self, current_input: u32, previous_input: u32) {
+        // Let's do SWITCHES
         let key = (current_input ^ previous_input) & SWITCHMASK;
         // println!("process_input key={:06x}", key);
         if key != 0 {
@@ -133,7 +135,7 @@ impl Simulator {
             }
         }
 
-        // let's do magnetos stuff
+        // let's do MAGNETOS
         // println!("process_input: Magnetos? {:06x} nag_value {:06x}", device.get_current_input() & MAGMASK, self.mag_value);
         let key = current_input & MAGMASK;
         if (key != 0) && (key != self.mag_value) {
@@ -149,38 +151,45 @@ impl Simulator {
                 write_simulator(&self.starter, 1); // extra action on the starter
             }
         }
-
-        // let's do gear retartget stuff
-        // gear up - just do it
-        // gear down - do it, and send a pump prime indicator
-        // println!("process_input: gear? {:06x} gear_value {:06x}", self.input_current & GEARMASK, self.gear_value);
-        // let key = device.get_current_input() & GEARMASK;
-        // println!(
-        //     "process_input: gear? {:06x} gear_value {:06x}",
-        //     key, device.get_previous_input() & GEARMASK
-        // );
-        // if key != 0 && key != (device.get_previous_input() & GEARMASK) && self.gear_retarget.len() > 0 {
-        //     // switch changed position
-        //     println!(
-        //         "process_input: key {:06x} gear_value {:06x}",
-        //         key, device.get_previous_input() & GEARMASK
-        //     );
-        //     write_simulator(
-        //         &self.gear_retarget,
-        //         if key == GEARUP { 1 } else { 0 },
-        //     );
-        //     if key == GEARDOWN && self.gear_primer.len() > 0 {
-        //         // send primer pump message too
-        //         write_simulator(&self.gear_primer, 1);
-        //     }
-        // }
     }
+}
+
+/// Send a command to the FGFS consisting of the simulator name for the switch to operate
+///  and the action (which is one of 0, 1, 2, 3, 4)
+fn write_simulator(control: &str, action: u8) {
+    let data = format!("{},{}\n", control, action);
+    // println!("Writing {}", data);
+    let buf = data.into_bytes();
+    // Following required to avoid getting 'address in use' error
+    // Copied from https://illegalargumentexception.blogspot.com/2015/05/rust-send-and-receive-on-localhost-with.html
+    let socket = UdpSocket::bind(SIMULATOR_INPUT_ADDRESS).expect("Socket create incoming error");
+    // of course, the simulator READS from this address
+    socket
+        .send_to(&buf, SIMULATOR_OUTPUT_ADDRESS)
+        .expect("Socket send error");
+}
+
+// ------------------------------------------------------------------------------------------------------------------------
+// CONFIGURATION processing
+// ------------------------------------------------------------------------------------------------------------------------
+
+// Tag names in XML configuration file
+enum StartType {
+    Plane,
+    Switch,
+    Magnetos,
+    Starter,
+    GearRetarget,
+    GearPrimer,
 }
 
 /// Processes the configuration file to build the mapping tables in the simulator
 /// This is called from 'new', so there is no 'self' yet
 fn config_loader(filename: &str, devmap: HashMap<String, u32>, config_data: &mut Simulator) {
-    let file = File::open(filename).unwrap();
+    let file = File::open(filename).unwrap_or_else(|_e| {
+        println!("Unable to access configuration file '{}'", filename);
+        process::exit(4);
+    });
     let file = BufReader::new(file);
 
     let parser = EventReader::new_with_config(file, ParserConfig::new().trim_whitespace(true));
@@ -259,28 +268,4 @@ fn config_loader(filename: &str, devmap: HashMap<String, u32>, config_data: &mut
     config_data.mag_mapper.insert(MAGL, 2);
     config_data.mag_mapper.insert(MAGBOTH, 3);
     config_data.mag_mapper.insert(MAGSTART, 4);
-}
-
-enum StartType {
-    Plane,
-    Switch,
-    Magnetos,
-    Starter,
-    GearRetarget,
-    GearPrimer,
-}
-
-/// Send a command to the FGFS consisting of the simulator name for the switch to operate
-///  and the action (which is one of 0, 1, 2, 3, 4)
-fn write_simulator(control: &str, action: u8) {
-    let data = format!("{},{}\n", control, action);
-    // println!("Writing {}", data);
-    let buf = data.into_bytes();
-    // Following required to avoid getting 'address in use' error
-    // Copied from https://illegalargumentexception.blogspot.com/2015/05/rust-send-and-receive-on-localhost-with.html
-    let socket = UdpSocket::bind(SIMULATOR_INPUT_ADDRESS).expect("Socket create incoming error");
-    // of course, the simulator READS from this address
-    socket
-        .send_to(&buf, SIMULATOR_OUTPUT_ADDRESS)
-        .expect("Socket send error");
 }

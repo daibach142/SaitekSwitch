@@ -33,14 +33,17 @@
 //!   without this affecting the Linux code.
 //!
 
-// use crate::simulator::simulator::Simulator;
 use crate::switch::switch_constants::*;
 
 use std::collections::HashMap;
 
-#[cfg(piped)]
-use std::io::{self, Read};
-
+// If the symbol 'piped' is defined, code is generated to access switch input data
+//   from an emulator piped into it.
+// Otherwise, the switch is connected as a hid device.
+// Hence '#[cfg(piped)]' will produce code for the emeulated version,
+//   and '#[cfg(not(piped))] will produce the standard production code.
+// The author has an emulator, written in C++ using the 'wxWidgets' framework that
+//   is available on request
 #[cfg(not(piped))]
 use hidapi::{HidApi, HidDevice};
 
@@ -62,6 +65,9 @@ pub struct Device {
     input_current: u32, // data from device
     input_old: u32,     // previous data
 }
+
+#[cfg(piped)]
+use std::io::{self, Read};
 
 // if data is piped to this driver, input is via STDIN, so there is no need to
 // hold any device information

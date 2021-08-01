@@ -16,7 +16,7 @@
     <switch name="NAVLIGHTS">   controls/switches/nav-lights-factor             </switch>
     <switch name="STROBE">      controls/switches/strobe-lights                 </switch>
      <switch name="TAXI">       autopilot engage                                </switch>
-    <switch name="LANDING">     controls/switches/landing-light                 </switch>
+    <switch name="LANDING">     controls/switches/landing-lights                 </switch>
     
     <magnetos>                  controls/engines/engine/magnetos-switch         </magnetos>
     <starter>                   controls/engines/engine/starter                 </starter>
