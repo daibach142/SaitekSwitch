@@ -25,12 +25,13 @@
 //!  Any switch will trigger one or two outputs -
 //!     for switches, one output (SET or RESET)
 //!     for magneto, one output except for MAGBOTH, which outputs MAGSTART RESET as well
-//!     
+//!  For the Gear lever, moving the lever causes TWO actions, one for the GEARUP and the
+//!  converse action for the GEARDOWN. For use as a simple switch, only configure for
+//!  one of the actions e.g. GEARUP
+//!    
 //!  The Nasal code in FGFS expects the bit values as the action i.e. SET 1, RESET 0
 //!  Writing the device requires 3 bytes of data
 //!
-//!  For Windows compatibility, an extra bytes (value unimportant) on the end if required,
-//!   without this affecting the Linux code.
 //!
 // returned 3 bytes from Saitek Switch Panel
 // bit positions of flags, per packed integer
@@ -61,7 +62,8 @@ pub const SWITCHMASK: u32 =
 		| PANELLIGHT
 		| BEACON | NAVLIGHTS
 		| STROBE | TAXI
-		| LANDING | GEARMASK;
+		| LANDING
+		| GEARMASK;
 
 pub const GEARUP: u32 = 0x000004;
 pub const GEARDOWN: u32 = 0x000008;
