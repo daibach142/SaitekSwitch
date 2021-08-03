@@ -15,3 +15,6 @@ It's quite easy to roll-your-own using the Cessna as an example.
 
 
 For problems or issues either enter an issue on Github, or email stksp@attwoods.org.uk.
+
+With many thanks to Bruce Maggs (bmm@cs.duke.edu) for help with debugging.
+
