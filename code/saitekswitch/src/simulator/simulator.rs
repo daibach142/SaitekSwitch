@@ -212,7 +212,7 @@ fn config_loader(filename: &str, devmap: HashMap<String, u32>, config_data: &mut
                         // println!("sname={:?}", sname);
                         match devmap.get(&sname) {
                             Some(x) => switch = *x,
-                            None => panic!("Uknown SWITCH name {:?}", sname),
+                            None => panic!("Unknown SWITCH name {:?}", sname),
                         }
                         mode = StartType::Switch;
                     }
@@ -259,7 +259,7 @@ fn config_loader(filename: &str, devmap: HashMap<String, u32>, config_data: &mut
     }
     if config_data.switch_mapper.len() < 13 {
         panic!(
-            "Error: you neeed 13 SWITCH elements, only {} unique ones provided",
+            "Error: you need 13 SWITCH elements, only {} unique ones provided",
             config_data.switch_mapper.len()
         );
     }
