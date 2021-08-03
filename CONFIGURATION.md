@@ -1,6 +1,6 @@
 # CONFIGURATION
 
-Copy maybe the data/cessna.xml file as a base.
+Copy maybe the `data/cessna.xml` file as a base.
 
 ## SWITCH elements
 
