@@ -1,7 +1,7 @@
-DRIVER FOR SAITEK SWITCH PANEL
-==============================
+FGFS DRIVER FOR SAITEK SWITCH PANEL
+===================================
 
-The driver is provided for Linux and Windows, and is written in the Rust language. 
+The driver for FlightGear flight simulator is provided for Linux and Windows, and is written in the Rust language. 
    
 To install this driver, follow the instructions in `INSTALL`; to run, see `RUNNING`.
 
