@@ -42,7 +42,7 @@ fn main() -> std::io::Result<()> {
         None => "data/cessna.xml".to_string(),
     };
 
-    println!("Configuration file {}", config);
+    println!("{} Version {} Configuration file {}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"), config);
     run(config);
     Ok(())
 }
