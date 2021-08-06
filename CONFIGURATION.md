@@ -1,6 +1,6 @@
 # CONFIGURATION
 
-Copy maybe the `data/cessna.xml` file as a base.
+Copy maybe the `cessna.xml` file as a base.
 
 ## SWITCH elements
 
@@ -27,3 +27,8 @@ There is one **`starter`** element, which specifies the control to be activated 
 ## SWITCH special
 
 In the Piper configuration file, the TAXI switch is unused, and the normal control string is replaced by `autopilot engage`. This special case is recognised by the `saitekswitch.nas` file, and operates the autopilot engage/disengage for KAP140 on PA28-116. 
+
+## Default Configuration File
+
+The default configuration file is named `switchdefaultconfig.xml` to allow simple modification of the configured plane without requiring run-time arguments. Just copy the desired file (maybe `piper.xml` or `cessna.xml`) over `switchdefaultconfig.xml`.
+ 

@@ -6,24 +6,19 @@
 
 ### For Windows
  
-1. Copy `saitekswitch.exe` to a suitable location.
-2. Copy `data\*.xml` to a convenient local directory.
+1. Copy `saitekswitch.exe` to a suitable location (Desktop?).
+2. Copy `switchdefaultconfig.xml` to the same directory.
 3. Copy `saitekswitch.nas` to your local FlightGear directory `<username>\AppData\Roaming\flightgear.org\Nasal`.
 4. Copy `saitekswitch.xml` to  FGFS Protocol directory `Program Files\Flightgear 2020.3\data\Protocol`.
-5. First run (in Powershell) `.\saitekswitch.exe [path to config xml file]` & check for any error messages.
+5. First run (in Powershell) `.\saitekswitch.exe ` & check for any error messages.
  
 ## Linux
 
 1. Run `sudo make install` in a terminal
 2. Copy `./data/*.xml` to a convenient local directory.
-3. First run `saitekswitch [path to config xml file]` & check for any error messages.
+3. First run `saitekswitch`  & check for any error messages.
 
 ## Note
 
-An item in [ ] brackets in an optional item, and should be replaced (including the []) with the required path, or omitted to get the default value.
-
-
-
-
-
+The default configuration file is `switchdefaultconfig.xml` and simply replace its contents with the desired configuration file (`cessna.xml`, `piper.xml`, or your own). This allows the program to be run without any arguments if desired; it is still possible to specify a config file as an argument if desired.
 

@@ -5,7 +5,7 @@ The driver for FlightGear flight simulator is provided for Linux and Windows, an
    
 To install this driver, follow the instructions in `INSTALL`; to run, see `RUNNING`.
 
-This software loads configuration which maps the switch keys to the **FSFG** simulator properties. The currently available configuration files are located in `./data`
+This software loads configuration which maps the switch keys to the **FSFG** simulator properties. The currently available configuration files are located in `cessna.xml` and `piper.xml`
 and are for:
 
 * Cessna 172
