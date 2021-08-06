@@ -12,7 +12,11 @@ Add the following start option to FlightGear configuration:
 Start the simulator first, and wait until initialisation complete.
 Set the switches suitably on the panel, and enter
 
- `saitekswitch [config file name]` (the default is file `data/cessna.xml`).
+ `saitekswitch[.exe] [config file path]` (the default is file `data/cessna.xml`).
+
+For example, on Windows, type:
+
+`saitekswitch.exe data\piper.xml`
 
 The software will illuminate the forward landing gear light RED,
 awaiting a switch change. Operate any switch, and the complete switch
