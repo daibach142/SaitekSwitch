@@ -27,3 +27,5 @@ settings on the panel will be transferred to the simulator.
 On the Piper, the TAXI switch is repurposed to operate the KAP140 Autopilot 
 ACTIVE/STANDBY switch.
 
+On Linux, the default configuration file should be in the directory where you launch the `saitekswitch` program.
+

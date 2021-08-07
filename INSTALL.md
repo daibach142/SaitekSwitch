@@ -15,8 +15,8 @@
 ## Linux
 
 1. Run `sudo make install` in a terminal
-2. Copy `./data/*.xml` to a convenient local directory.
-3. First run `saitekswitch`  & check for any error messages.
+2. Copy `*.xml` to a convenient local directory.
+3. From a directory where `switchdefaultconfg.xml` is located,  run `saitekswitch`  & check for any error messages.
 
 ## Note
 
