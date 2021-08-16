@@ -11,6 +11,9 @@
 3. Copy `saitekswitch.nas` to your local FlightGear directory `<username>\AppData\Roaming\flightgear.org\Nasal`.
 4. Copy `saitekswitch.xml` to  FGFS Protocol directory `Program Files\Flightgear 2020.3\data\Protocol`.
 5. First run (in Powershell) `.\saitekswitch.exe ` & check for any error messages.
+6. Copy `startup.bat` to same location as the program (Desktop?).
+7. If the program `saitekradio.exe` is not present, delete the relevant line in `startup.bat`.
+8. Program(s) can now be run by double-click on `startup.bat`.
  
 ## Linux
 

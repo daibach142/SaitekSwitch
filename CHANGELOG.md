@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0 2021-08-16
+
+1.	Added the `startup.bat` file for Windows users.
+
 ## 1.2.0 2021-08-07
 
 1.	Added some text to INSTALLATION and RUNNING files to clarify the location of the default configuration file.
