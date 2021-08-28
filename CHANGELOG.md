@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0 2021-08-28
+
+1.    Corrected path in `BUILDING.md`
+
 ## 1.2.0 2021-08-16
 
 1.	Added the `startup.bat` file for Windows users.
