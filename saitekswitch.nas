@@ -21,8 +21,9 @@ var do_action = func {
             setprop("autopilot/kap140/panel/ap-timer", 5);
             setprop("autopilot/kap140/panel/state", 5);
         }   
-    }
-    else setprop(thing, action);
+    } else if (thing =="instrumentation/nav-source/selector" and action == 1) {
+    	setprop(thing, 2);  # GPS select
+    } else setprop(thing, action);
 }
 
 setlistener ("/saitek-switch-panel/action", do_action);

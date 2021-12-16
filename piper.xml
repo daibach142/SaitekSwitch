@@ -10,12 +10,12 @@
     <switch name="FUELPUMP">    controls/fuel/switches/pump                     </switch>
     <switch name="DEICE">       controls/anti-ice/engine/carb-heat-cmd          </switch>
     <switch name="PITOTHEAT">   controls/switches/pitot-heat                    </switch>
-    <switch name="COWLCLOSE">   controls/engines/engine/cowl-flaps-norm         </switch>
+    <switch name="COWLCLOSE">   instrumentation/nav-source/selector             </switch>
     <switch name="PANELLIGHT">  controls/switches/panel-lights-factor           </switch>
     <switch name="BEACON">      controls/switches/beacon                        </switch>
     <switch name="NAVLIGHTS">   controls/switches/nav-lights-factor             </switch>
     <switch name="STROBE">      controls/switches/strobe-lights                 </switch>
-     <switch name="TAXI">       autopilot engage                                </switch>
+    <switch name="TAXI">        autopilot engage                                </switch>
     <switch name="LANDING">     controls/switches/landing-light                 </switch>
     
     <magnetos>                  controls/engines/engine/magnetos-switch         </magnetos>

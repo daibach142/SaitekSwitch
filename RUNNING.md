@@ -10,13 +10,14 @@ Add the following start option to FlightGear configuration:
 	...
 
 Start the simulator first, and wait until initialisation complete.
-Set the switches suitably on the panel, and enter
+Set the switches suitably on the panel.  
+  
+##On Windows
+To use the default configuration file `switchdefaultconfig.xml`,  
+double-click the `startup.bat` file on the Desktop.  
 
- `saitekswitch[.exe]` to use the default file `switchdefaultconfig.xml`
-
-For example, on Windows, type:
-
-`saitekswitch.exe`
+##On Linux
+Enter the command `saitekswitch` or run from the file manager, to use the default file `switchdefaultconfig.xml`
 
 The software will illuminate the forward landing gear light RED,
 awaiting a switch change. Operate any switch, and the complete switch
@@ -28,4 +29,8 @@ On the Piper, the TAXI switch is repurposed to operate the KAP140 Autopilot
 ACTIVE/STANDBY switch.
 
 On Linux, the default configuration file should be in the directory where you launch the `saitekswitch` program.
+
+An optional argument may be used to change to a specific confiuration file e.g.  
+
+`saitekswitch piper.xml`
 
