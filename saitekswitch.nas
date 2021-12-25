@@ -21,8 +21,15 @@ var do_action = func {
             setprop("autopilot/kap140/panel/ap-timer", 5);
             setprop("autopilot/kap140/panel/state", 5);
         }   
-    } else if (thing =="instrumentation/nav-source/selector" and action == 1) {
-    	setprop(thing, 2);  # GPS select
+    } else if (thing =="instrumentation/nav-source/selector") {
+    	if (action ==1) {
+ 		   	setprop(thing, 2);  # GPS select
+    	}
+    	else {
+    		setprop(thing, 0);  # NAV1 select
+    	}
+    	setprop("autopilot/kap140/panel/nav-timer",getprop("sim/time/elapsed-sec"));
+    	setprop("/sim/sounde/switch1", 1);
     } else setprop(thing, action);
 }
 

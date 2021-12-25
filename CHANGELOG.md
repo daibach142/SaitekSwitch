@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0 2021-12-25 
+
+1. Facilty to operate NAV select three-way switch on KPA140
+
 ## 1.2.0 2021-08-28
 
 1.    Corrected path in `BUILDING.md`

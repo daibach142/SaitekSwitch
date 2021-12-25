@@ -26,7 +26,10 @@ There is one **`starter`** element, which specifies the control to be activated 
 
 ## SWITCH special
 
-In the Piper configuration file, the TAXI switch is unused, and the normal control string is replaced by `autopilot engage`. This special case is recognised by the `saitekswitch.nas` file, and operates the autopilot engage/disengage for KAP140 on PA28-116. 
+In the Piper configuration file, the TAXI switch is unused, and the normal control string is replaced by `autopilot engage`. This special case is recognised by the `saitekswitch.nas` file, and operates the autopilot engage/disengage for KAP140 on PA28-11x. 
+
+Also for any aircraft with a three-way NAV1/NAV2/GPS such the KAP140 on the PA28-11x, using the switch value  
+`instrumentation/nav-source/selector` will cause the switch to select either the NAV1 or GPS settings.
 
 ## Default Configuration File
 
