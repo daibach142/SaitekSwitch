@@ -94,7 +94,7 @@ impl Simulator {
         // );
         for (key, value) in &self.switch_mapper {
             let status = if (current_input & key) == 0 { 0 } else { 1 };
-            &self.switch_status.insert(*key, status);
+            let _ = &self.switch_status.insert(*key, status);
             // println!("Key {:06x} Value {} destination {}", key, status, value);
             write_simulator(value, status);
             thread::sleep(delay);
