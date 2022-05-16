@@ -9,13 +9,14 @@
     <switch name="FUELPUMP">    controls/hydraulic/system/electric-pump     </switch>
     <switch name="DEICE">       controls/engines/current-engine/carb-heat   </switch>
     <switch name="PITOTHEAT">   controls/anti-ice/pitot-heat                </switch>
-    <switch name="COWLCLOSE">   controls/engines/engine/cowl-flaps-norm      </switch>
+    <switch name="COWLCLOSE">   controls/engines/engine/cowl-flaps-norm     </switch>
     <switch name="PANELLIGHT">  controls/lighting/instruments-norm          </switch>
     <switch name="BEACON">      controls/lighting/beacon                    </switch>
     <switch name="NAVLIGHTS">   controls/lighting/nav-lights                </switch>
     <switch name="STROBE">      controls/lighting/strobe                    </switch>
     <switch name="TAXI">        controls/lighting/taxi-light                </switch>
-    <switch name="LANDING">     controls/lighting/landing-lights             </switch>
+    <switch name="LANDING">     controls/lighting/landing-lights            </switch>
+    <switch name="GEARUP">      controls/engines/engine/primer-lever        </switch> 
 
     <magnetos>                  controls/switches/magnetos                  </magnetos>
     <starter>                   controls/switches/starter                   </starter>

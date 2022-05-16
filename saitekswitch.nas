@@ -30,7 +30,9 @@ var do_action = func {
     	}
     	setprop("autopilot/kap140/panel/nav-timer",getprop("sim/time/elapsed-sec"));
     	setprop("/sim/sounde/switch1", 1);
-    } else setprop(thing, action);
+    } else if (thing == "controls/engines/engine/primer-lever") {
+    		c172p.pumpPrimer();
+    } else  setprop(thing, action);
 }
 
 setlistener ("/saitek-switch-panel/action", do_action);

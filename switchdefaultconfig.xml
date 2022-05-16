@@ -16,6 +16,7 @@
     <switch name="STROBE">      controls/lighting/strobe                    </switch>
     <switch name="TAXI">        controls/lighting/taxi-light                </switch>
     <switch name="LANDING">     controls/lighting/landing-lights             </switch>
+    <switch name="GEARUP">      controls/engines/engine/primer-lever        </switch> 
 
     <magnetos>                  controls/switches/magnetos                  </magnetos>
     <starter>                   controls/switches/starter                   </starter>
