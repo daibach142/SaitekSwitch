@@ -13,6 +13,7 @@ and are for:
 
 It's quite easy to roll-your-own using the Cessna as an example.
 
+This version (1.3.0) provides the Gear Up/Down lever on the cessna 172 as the primer pump control.
 
 For problems or issues either enter an issue on Github, or email stksp@attwoods.org.uk.
 
