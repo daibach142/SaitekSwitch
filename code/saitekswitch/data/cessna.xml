@@ -16,6 +16,11 @@
     <switch name="STROBE">      controls/lighting/strobe                    </switch>
     <switch name="TAXI">        controls/lighting/taxi-light                </switch>
     <switch name="LANDING">     controls/lighting/landing-lights            </switch>
+
+    <!-- Following enables the Gear up/down lever to operate the engine 
+         primer, only on the Cessna 172P. Use on other aircraft will give
+         a (non-fatal) Nasal error in the simulator.                              -->
+
     <switch name="GEARUP">      controls/engines/engine/primer-lever        </switch> 
 
     <magnetos>                  controls/switches/magnetos                  </magnetos>
