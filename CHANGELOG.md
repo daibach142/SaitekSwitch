@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.0 2022-06-02
+
+1.  Added configuration file for Cessna 182S.
+ 
 ## 1.3.0 2022-05-05
 
 1.	Added facility to use the gear up/down lever to operate the primer on Cessna 172P.
