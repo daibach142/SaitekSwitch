@@ -12,11 +12,11 @@ Add the following start option to FlightGear configuration:
 Start the simulator first, and wait until initialisation complete.
 Set the switches suitably on the panel.  
   
-##On Windows
+## On Windows
 To use the default configuration file `switchdefaultconfig.xml`,  
 double-click the `startup.bat` file on the Desktop.  
 
-##On Linux
+## On Linux
 Enter the command `saitekswitch` or run from the file manager, to use the default file `switchdefaultconfig.xml`
 
 The software will illuminate the forward landing gear light RED,
