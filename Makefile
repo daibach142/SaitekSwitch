@@ -33,7 +33,7 @@ uninstall:
 	$(info )
 	$(info *********** Local FGFS location is $(LOCAL_FGFS) ************* )
 	$(info )
-	-pkill -9 saitekradio
+	-pkill -9 $(PRODUCT)
 	-rm $(GAMES_PATH)/$(PRODUCT)
 	-rm $(SYSTEM_FGFS)/Protocol/$(PRODUCT).xml
 	-rm $(LOCAL_FGFS)/Nasal/$(PRODUCT).nas
