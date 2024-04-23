@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.1 2024-04-23
+
+1.	Adjusted Makefile to correctly locate ~/.fgfs/Nasal
+
 ## 1.3.0 2022-06-02
 
 1.  Added configuration file for Cessna 182S.
