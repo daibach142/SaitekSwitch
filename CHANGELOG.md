@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.3.1 2024-05-01
+
+1.	Combine INSTALL, RUNNING, CONFIGURING into README
+2.	Re-organise source code into a workspace
+3.	Change license from GPL V3 to MIT
+
 ## 1.3.1 2024-04-23
 
 1.	Adjusted Makefile to correctly locate ~/.fgfs/Nasal

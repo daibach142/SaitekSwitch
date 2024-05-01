@@ -1,0 +1,11 @@
+[package]
+name = "simulator"
+version = {workspace = true}
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+xml = { workspace = true }
+switch = { path = "../switch"}
+switch_constants = { path = "../switch_constants" }
+
